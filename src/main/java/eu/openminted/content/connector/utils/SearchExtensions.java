@@ -1,8 +1,8 @@
 package eu.openminted.content.connector.utils;
 
-import eu.openminted.content.connector.LanguageConverter;
+import eu.openminted.content.connector.utils.language.LanguageConverter;
+import eu.openminted.content.connector.utils.faceting.OMTDFacetEnum;
 import eu.openminted.content.connector.SearchResult;
-import eu.openminted.content.connector.faceting.OMTDFacetEnum;
 import eu.openminted.registry.core.domain.Facet;
 import eu.openminted.registry.core.domain.Value;
 import org.apache.commons.lang.WordUtils;
@@ -12,13 +12,16 @@ import java.util.stream.Collectors;
 
 public class SearchExtensions {
 
-    public static SearchResult merge(SearchResult result1, SearchResult result2) {
-        result1.setTotalHits(result1.getTotalHits() + result2.getTotalHits())
-                .setFacets(mergeFacets(result1.getFacets(), result2.getFacets()));
+    public static void merge(SearchResult result1, SearchResult result2) {
+        result1.setTotalHits(result1.getTotalHits() + result2.getTotalHits());
+        result1.setFacets(mergeFacets(result1.getFacets(), result2.getFacets()));
+
+        if (result1.getFrom() > result2.getFrom())
+            result1.setFrom(result2.getFrom());
+        if (result1.getTo() < result2.getTo())
+            result1.setTo(result2.getTo());
 
         //TODO: how to merge results? do we need to?
-
-        return result1;
     }
 
     private static List<Facet> mergeFacets(List<Facet> f1, List<Facet> f2) {

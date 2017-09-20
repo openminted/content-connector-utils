@@ -1,6 +1,5 @@
 package eu.openminted.content.connector.utils.faceting;
 
-import eu.openminted.content.connector.faceting.OMTDFacetEnum;
 import eu.openminted.registry.domain.PublicationTypeEnum;
 import eu.openminted.registry.domain.RightsStatementEnum;
 
