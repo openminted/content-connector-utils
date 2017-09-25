@@ -1,6 +1,5 @@
 package eu.openminted.content.connector.utils;
 
-import eu.openminted.content.connector.utils.language.LanguageConverter;
 import eu.openminted.content.connector.utils.faceting.OMTDFacetEnum;
 import eu.openminted.content.connector.SearchResult;
 import eu.openminted.registry.core.domain.Facet;
@@ -48,9 +47,11 @@ public class SearchExtensions {
 
             if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.PUBLICATION_YEAR.value())) {
                 facet = buildFacet(getPublicationYearFacet(e.getValue()));
-            } else if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.DOCUMENT_LANG.value())) {
-                facet = buildFacet(getLanguageFacet(e.getValue()));
-            } else
+            }
+//            else if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.DOCUMENT_LANG.value())) {
+//                facet = buildFacet(getLanguageFacet(e.getValue()));
+//            }
+            else
                 facet = buildFacet(e.getValue());
 
             for (Value value : facet.getValues()) {
@@ -66,9 +67,10 @@ public class SearchExtensions {
 
             if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.PUBLICATION_YEAR.value())) {
                 facet = buildFacet(getPublicationYearFacet(e.getValue()));
-            } else if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.DOCUMENT_LANG.value())) {
-                facet = buildFacet(getLanguageFacet(e.getValue()));
             }
+//            else if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.DOCUMENT_LANG.value())) {
+//                facet = buildFacet(getLanguageFacet(e.getValue()));
+//            }
             else {
                 facet = buildFacet(e.getValue());
             }
@@ -131,17 +133,17 @@ public class SearchExtensions {
     }
 
 
-    private static Facet getLanguageFacet(Facet languageFacet) {
-
-        // Check this hashMap to convert ISO 639-2 to omtd ISO 639-1 (or ISO 639-3)
-        for (Value value : languageFacet.getValues()) {
-            if (value.getCount() > 0
-                    && LanguageConverter.getInstance().getOpenaireToOMTDName().containsKey(value.getValue())) {
-                value.setValue(LanguageConverter.getInstance().getOpenaireToOMTDName().get(value.getValue()));
-            }
-        }
-        return languageFacet;
-    }
+//    private static Facet getLanguageFacet(Facet languageFacet) {
+//
+//        // Check this hashMap to convert ISO 639-2 to omtd ISO 639-1 (or ISO 639-3)
+//        for (Value value : languageFacet.getValues()) {
+//            if (value.getCount() > 0
+//                    && LanguageConverter.getInstance().getISO639_3Naming().containsKey(value.getValue())) {
+//                value.setValue(LanguageConverter.getInstance().getISO639_3Naming().get(value.getValue()));
+//            }
+//        }
+//        return languageFacet;
+//    }
 
     private static Facet buildFacet(Facet facet) {
         facet.setValues(mergeValues(facet));

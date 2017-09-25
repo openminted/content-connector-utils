@@ -2,11 +2,13 @@ package eu.openminted.content.connector.utils.faceting;
 
 import eu.openminted.registry.domain.PublicationTypeEnum;
 import eu.openminted.registry.domain.RightsStatementEnum;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class OMTDFacetInitializer {
+@Component
+public class OMTDFacetLabels {
     private Map<OMTDFacetEnum, String> omtdFacetLabels = new HashMap<>();
     private Map<RightsStatementEnum, String> omtdRightsStmtLabels = new HashMap<>();
     private Map<PublicationTypeEnum, String> omtdPublicationTypeLabels = new HashMap<>();
@@ -14,7 +16,7 @@ public class OMTDFacetInitializer {
     private Map<String, RightsStatementEnum> omtdGetRightsStmtEnumFromLabel = new HashMap<>();
 
 
-    public OMTDFacetInitializer() {
+    public OMTDFacetLabels() {
         omtdFacetLabels.put(OMTDFacetEnum.PUBLICATION_TYPE, "Publication Type");
         omtdFacetLabels.put(OMTDFacetEnum.PUBLICATION_YEAR, "Publication Year");
         omtdFacetLabels.put(OMTDFacetEnum.RIGHTS_STMT_NAME, "Rights Statement");
