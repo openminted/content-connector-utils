@@ -200,7 +200,7 @@ public class LanguageUtils {
     private Map<String, String> convert639_1to639_2T = new HashMap<>();
     private Map<String, String> convert639_1to639_3 = new HashMap<>();
 
-    private Map<String, String> obsoletes = new HashMap<>();
+    private Map<String, String> additionalCodes = new HashMap<>();
 
     public LanguageUtils() {
         // Basic structures
@@ -215,7 +215,7 @@ public class LanguageUtils {
         initializeConverter639_1To639_2T();
         initializeConverter639_1To639_3();
         // Obsoletes
-        initializeObsoleteCodes();
+        initializeAdditionalCodes();
     }
 
     private void initializeLangCodeToName() {
@@ -1194,15 +1194,16 @@ public class LanguageUtils {
         _lang_name_to_code.put("zaza; dimili; dimli; kirdki; kirmanjki; zazaki", "zza");
     }
 
-    private void initializeObsoleteCodes() {
-        obsoletes.put("iri", "ga");
-        obsoletes.put("gai", "ga");
-        obsoletes.put("scr", "sh");
-        obsoletes.put("ga", "gai/iri");
-        obsoletes.put("sh", "scr");
-
-        _lang_code_to_name.put("scr", "Serbo-Croatian");
-        _lang_name_to_code.put("Serbo-Croatian", "scr");
+    private void initializeAdditionalCodes() {
+        additionalCodes.put("iri", "ga");
+        additionalCodes.put("gai", "ga");
+        additionalCodes.put("scr", "sh");
+        additionalCodes.put("ga", "gai/iri");
+        additionalCodes.put("sh", "scr");
+        additionalCodes.put("ell/gre", "el");
+        additionalCodes.put("gre/ell", "el");
+        additionalCodes.put("scr", "Serbo-Croatian");
+        additionalCodes.put("serbo-croatian", "scr");
 
     }
 
@@ -1258,6 +1259,7 @@ public class LanguageUtils {
         convert639_3to639_1.put("glg", "gl");
         convert639_3to639_1.put("kat", "ka");
         convert639_3to639_1.put("deu", "de");
+        convert639_3to639_1.put("gre", "el");
         convert639_3to639_1.put("ell", "el");
         convert639_3to639_1.put("grn", "gn");
         convert639_3to639_1.put("guj", "gu");
@@ -1446,6 +1448,7 @@ public class LanguageUtils {
         convert639_2Bto639_1.put("geo", "ka");
         convert639_2Bto639_1.put("ger", "de");
         convert639_2Bto639_1.put("gre", "el");
+        convert639_2Bto639_1.put("ell", "el");
         convert639_2Bto639_1.put("grn", "gn");
         convert639_2Bto639_1.put("guj", "gu");
         convert639_2Bto639_1.put("hat", "ht");
@@ -1633,6 +1636,7 @@ public class LanguageUtils {
         convert639_2Tto639_1.put("kat", "ka");
         convert639_2Tto639_1.put("deu", "de");
         convert639_2Tto639_1.put("ell", "el");
+        convert639_2Tto639_1.put("gre", "el");
         convert639_2Tto639_1.put("grn", "gn");
         convert639_2Tto639_1.put("guj", "gu");
         convert639_2Tto639_1.put("hat", "ht");
@@ -1819,7 +1823,7 @@ public class LanguageUtils {
         convert639_1to639_2B.put("gl", "glg");
         convert639_1to639_2B.put("ka", "geo");
         convert639_1to639_2B.put("de", "ger");
-        convert639_1to639_2B.put("el", "gre");
+        convert639_1to639_2B.put("el", "gre/ell");
         convert639_1to639_2B.put("gn", "grn");
         convert639_1to639_2B.put("gu", "guj");
         convert639_1to639_2B.put("ht", "hat");
@@ -2006,7 +2010,7 @@ public class LanguageUtils {
         convert639_1to639_2T.put("gl", "glg");
         convert639_1to639_2T.put("ka", "kat");
         convert639_1to639_2T.put("de", "deu");
-        convert639_1to639_2T.put("el", "ell");
+        convert639_1to639_2T.put("el", "gre/ell");
         convert639_1to639_2T.put("gn", "grn");
         convert639_1to639_2T.put("gu", "guj");
         convert639_1to639_2T.put("ht", "hat");
@@ -2192,7 +2196,7 @@ public class LanguageUtils {
         convert639_1to639_3.put("gl", "glg");
         convert639_1to639_3.put("ka", "kat");
         convert639_1to639_3.put("de", "deu");
-        convert639_1to639_3.put("el", "ell");
+        convert639_1to639_3.put("el", "gre/ell");
         convert639_1to639_3.put("gn", "grn");
         convert639_1to639_3.put("gu", "guj");
         convert639_1to639_3.put("ht", "hat");
@@ -2358,7 +2362,7 @@ public class LanguageUtils {
         return convert639_1to639_3;
     }
 
-    public Map<String, String> getObsoletes() {
-        return obsoletes;
+    public Map<String, String> getAdditionalCodes() {
+        return additionalCodes;
     }
 }
