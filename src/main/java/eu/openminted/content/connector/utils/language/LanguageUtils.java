@@ -1200,14 +1200,8 @@ public class LanguageUtils {
         additionalCodes.put("scr", "sh");
         additionalCodes.put("ga", "gai/iri");
         additionalCodes.put("sh", "scr");
-        additionalCodes.put("ell/gre", "el");
-        additionalCodes.put("gre/ell", "el");
-        additionalCodes.put("ces/cze", "cs");
-        additionalCodes.put("cze/ces", "cs");
-
         additionalCodes.put("scr", "Serbo-Croatian");
         additionalCodes.put("serbo-croatian", "scr");
-
     }
 
     private void initializeConverter639_3to639_1() {
@@ -1809,7 +1803,7 @@ public class LanguageUtils {
         convert639_1to639_2B.put("co", "cos");
         convert639_1to639_2B.put("cr", "cre");
         convert639_1to639_2B.put("hr", "hrv");
-        convert639_1to639_2B.put("cs", "ces/cze");
+        convert639_1to639_2B.put("cs", "cze");
         convert639_1to639_2B.put("da", "dan");
         convert639_1to639_2B.put("dv", "div");
         convert639_1to639_2B.put("nl", "dut");
@@ -1826,7 +1820,7 @@ public class LanguageUtils {
         convert639_1to639_2B.put("gl", "glg");
         convert639_1to639_2B.put("ka", "geo");
         convert639_1to639_2B.put("de", "ger");
-        convert639_1to639_2B.put("el", "gre/ell");
+        convert639_1to639_2B.put("el", "gre");
         convert639_1to639_2B.put("gn", "grn");
         convert639_1to639_2B.put("gu", "guj");
         convert639_1to639_2B.put("ht", "hat");
@@ -1996,7 +1990,7 @@ public class LanguageUtils {
         convert639_1to639_2T.put("co", "cos");
         convert639_1to639_2T.put("cr", "cre");
         convert639_1to639_2T.put("hr", "hrv");
-        convert639_1to639_2T.put("cs", "ces/cze");
+        convert639_1to639_2T.put("cs", "ces");
         convert639_1to639_2T.put("da", "dan");
         convert639_1to639_2T.put("dv", "div");
         convert639_1to639_2T.put("nl", "nld");
@@ -2013,7 +2007,7 @@ public class LanguageUtils {
         convert639_1to639_2T.put("gl", "glg");
         convert639_1to639_2T.put("ka", "kat");
         convert639_1to639_2T.put("de", "deu");
-        convert639_1to639_2T.put("el", "gre/ell");
+        convert639_1to639_2T.put("el", "ell");
         convert639_1to639_2T.put("gn", "grn");
         convert639_1to639_2T.put("gu", "guj");
         convert639_1to639_2T.put("ht", "hat");
@@ -2182,7 +2176,7 @@ public class LanguageUtils {
         convert639_1to639_3.put("co", "cos");
         convert639_1to639_3.put("cr", "cre");
         convert639_1to639_3.put("hr", "hrv");
-        convert639_1to639_3.put("cs", "ces/cze");
+        convert639_1to639_3.put("cs", "ces");
         convert639_1to639_3.put("da", "dan");
         convert639_1to639_3.put("dv", "div");
         convert639_1to639_3.put("nl", "nld");
@@ -2199,7 +2193,7 @@ public class LanguageUtils {
         convert639_1to639_3.put("gl", "glg");
         convert639_1to639_3.put("ka", "kat");
         convert639_1to639_3.put("de", "deu");
-        convert639_1to639_3.put("el", "gre/ell");
+        convert639_1to639_3.put("el", "ell");
         convert639_1to639_3.put("gn", "grn");
         convert639_1to639_3.put("gu", "guj");
         convert639_1to639_3.put("ht", "hat");
