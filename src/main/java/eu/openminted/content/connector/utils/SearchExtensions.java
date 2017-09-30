@@ -95,6 +95,7 @@ public class SearchExtensions {
     private static Facet mergeFacet(Facet f1, Facet f2) {
         Facet f = new Facet();
         Map<String, Integer> temp = new HashMap<>();
+        Map<String, String> labels = new HashMap<>();
 
         f.setField(f1.getField());
         f.setLabel(f1.getLabel());
@@ -103,13 +104,16 @@ public class SearchExtensions {
         for (Value v : f1.getValues()) {
             String valueName = WordUtils.capitalizeFully(v.getValue());
             temp.put(valueName, v.getCount());
+            labels.put(valueName, v.getLabel());
         }
         for (Value v : f2.getValues()) {
             String valueName = WordUtils.capitalizeFully(v.getValue());
             if (temp.containsKey(valueName))
                 temp.put(valueName, v.getCount() + temp.get(WordUtils.capitalizeFully(v.getValue())));
-            else
+            else {
                 temp.put(valueName, v.getCount());
+                labels.put(valueName, v.getLabel());
+            }
         }
 
         for (Map.Entry<String, Integer> e : temp.entrySet()) {
@@ -117,6 +121,7 @@ public class SearchExtensions {
             String keyName = WordUtils.capitalizeFully(e.getKey());
 
             v.setValue(keyName);
+            v.setLabel(labels.get(keyName));
             v.setCount(e.getValue());
 
             f.getValues().add(v);
@@ -157,6 +162,7 @@ public class SearchExtensions {
             Value tmpValue = new Value();
             tmpValue.setCount(value.getCount());
             tmpValue.setValue(value.getValue());
+            tmpValue.setLabel(value.getLabel());
 
             String keyName = WordUtils.capitalizeFully(tmpValue.getValue());
 
