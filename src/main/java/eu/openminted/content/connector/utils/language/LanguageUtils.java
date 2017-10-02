@@ -704,6 +704,9 @@ public class LanguageUtils {
         _lang_code_to_name.put("zu", "Zulu");
         _lang_code_to_name.put("zun", "Zuni");
         _lang_code_to_name.put("zza", "Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki");
+
+        // Additional codes
+        _lang_code_to_name.put("scr", "Serbo-Croatian");
     }
 
     private void initializeLangNameToCode() {
@@ -1192,6 +1195,9 @@ public class LanguageUtils {
         _lang_name_to_code.put("zulu", "zu");
         _lang_name_to_code.put("zuni", "zun");
         _lang_name_to_code.put("zaza; dimili; dimli; kirdki; kirmanjki; zazaki", "zza");
+
+        //additional codes
+        _lang_name_to_code.put("serbo-croatian", "scr");
     }
 
     private void initializeAdditionalCodes() {
@@ -1200,8 +1206,6 @@ public class LanguageUtils {
         additionalCodes.put("scr", "sh");
         additionalCodes.put("ga", "gai/iri");
         additionalCodes.put("sh", "scr");
-        additionalCodes.put("scr", "Serbo-Croatian");
-        additionalCodes.put("serbo-croatian", "scr");
     }
 
     private void initializeConverter639_3to639_1() {
