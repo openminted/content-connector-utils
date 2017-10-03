@@ -44,18 +44,11 @@ public class SearchExtensions {
         for (Map.Entry<String, Facet> e : f1.entrySet()) {
             Facet facet;
             String keyName = WordUtils.capitalizeFully(e.getKey());
-
-            if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.PUBLICATION_YEAR.value())) {
-                facet = buildFacet(getPublicationYearFacet(e.getValue()));
-            }
-//            else if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.DOCUMENT_LANG.value())) {
-//                facet = buildFacet(getLanguageFacet(e.getValue()));
-//            }
-            else
-                facet = buildFacet(e.getValue());
+            facet = buildFacet(e.getValue());
 
             for (Value value : facet.getValues()) {
                 value.setValue(WordUtils.capitalizeFully(value.getValue()));
+                value.setLabel(WordUtils.capitalizeFully(value.getLabel()));
             }
 
             temp.put(keyName, facet);
@@ -64,19 +57,11 @@ public class SearchExtensions {
         for (Map.Entry<String, Facet> e : f2.entrySet()) {
             Facet facet;
             String keyName = WordUtils.capitalizeFully(e.getKey());
-
-            if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.PUBLICATION_YEAR.value())) {
-                facet = buildFacet(getPublicationYearFacet(e.getValue()));
-            }
-//            else if (e.getKey().equalsIgnoreCase(OMTDFacetEnum.DOCUMENT_LANG.value())) {
-//                facet = buildFacet(getLanguageFacet(e.getValue()));
-//            }
-            else {
-                facet = buildFacet(e.getValue());
-            }
+            facet = buildFacet(e.getValue());
 
             for (Value value : facet.getValues()) {
                 value.setValue(WordUtils.capitalizeFully(value.getValue()));
+                value.setLabel(WordUtils.capitalizeFully(value.getLabel()));
             }
 
             if (temp.containsKey(e.getKey())) {
@@ -129,26 +114,6 @@ public class SearchExtensions {
 
         return f;
     }
-
-    private static Facet getPublicationYearFacet(Facet publicationYearFacet) {
-        for (Value value : publicationYearFacet.getValues()) {
-            value.setValue(value.getValue().substring(0, 4));
-        }
-        return publicationYearFacet;
-    }
-
-
-//    private static Facet getLanguageFacet(Facet languageFacet) {
-//
-//        // Check this hashMap to convert ISO 639-2 to omtd ISO 639-1 (or ISO 639-3)
-//        for (Value value : languageFacet.getValues()) {
-//            if (value.getCount() > 0
-//                    && LanguageConverter.getInstance().getISO639_3Naming().containsKey(value.getValue())) {
-//                value.setValue(LanguageConverter.getInstance().getISO639_3Naming().get(value.getValue()));
-//            }
-//        }
-//        return languageFacet;
-//    }
 
     private static Facet buildFacet(Facet facet) {
         facet.setValues(mergeValues(facet));
