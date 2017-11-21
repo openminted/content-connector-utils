@@ -72,7 +72,7 @@ public class SearchExtensions {
         return f2;
     }
 
-    private static Facet mergeFacet(Facet f1, Facet f2) {
+    public static Facet mergeFacet(Facet f1, Facet f2) {
         Facet f = new Facet();
         Map<String, Integer> mapCounts = new HashMap<>();
         Map<String, String> mapLabels = new HashMap<>();
@@ -80,8 +80,6 @@ public class SearchExtensions {
         f.setField(f1.getField());
         f.setLabel(f1.getLabel());
         f.setValues(new ArrayList<>());
-
-
 
         for (Value v : f1.getValues()) {
             mapCounts.put(v.getValue(), v.getCount());
@@ -108,7 +106,7 @@ public class SearchExtensions {
         return f;
     }
 
-    private static List<Value> mergeValues(Facet facet) {
+    public static List<Value> mergeValues(Facet facet) {
         Map<String, Value> map = new HashMap<>();
 
         facet.getValues().forEach(v -> {
